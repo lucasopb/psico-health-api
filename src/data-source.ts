@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
-import { Psychologist } from './psychologist/psychologist.entity';
-import { User } from './user/user.entity';
+import { Psychologist } from './psychologists/entities/psychologists.entity';
+import { User } from './users/user.entity';
 
 dotenv.config();
 

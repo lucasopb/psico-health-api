@@ -1,6 +1,6 @@
 // src/user/user.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from 'typeorm';
-import { Psychologist } from 'src/psychologist/psychologist.entity';
+import { Psychologist } from 'src/psychologists/entities/psychologists.entity';
 
 export type UserRole = 'PATIENT' | 'PSYCHOLOGIST';
 
