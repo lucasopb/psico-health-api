@@ -6,13 +6,13 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
 import { UsersService } from '../users/users.service';
-import { ProfessionalsService } from 'src/professionals/professionals.service';
+import { PsychologistsService } from 'src/psychologists/psychologists.service';
 
 @Injectable()
 export class AuthService {
   constructor(
     private usersService: UsersService,
-    private professionalsService: ProfessionalsService,
+    private psychologistsService: PsychologistsService,
     private jwtService: JwtService,
   ) { }
 
@@ -36,20 +36,20 @@ export class AuthService {
     };
   }
 
-  async loginProfessional(email: string, password: string): Promise<any> {
-    const professional = await this.professionalsService.findByEmail(email);
+  async loginPsychologist(email: string, password: string): Promise<any> {
+    const psychologist = await this.psychologistsService.findByEmail(email);
 
-    if (!professional) {
+    if (!psychologist) {
       throw new NotFoundException('User not found');
     }
 
-    const isPasswordValid = await argon2.verify(professional.password, password);
+    const isPasswordValid = await argon2.verify(psychologist.password, password);
 
     if (!isPasswordValid) {
       throw new UnauthorizedException('Invalid password');
     }
 
-    const payload = { sub: professional.id, email };
+    const payload = { sub: psychologist.id, email };
 
     return {
       access_token: await this.jwtService.signAsync(payload),

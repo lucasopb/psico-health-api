@@ -15,10 +15,10 @@ export class AuthController {
     return result;
   }
 
-  @Post('login-professional')
-  async loginProfessional(@Body() loginDto: LoginDto) {
+  @Post('login-psychologist')
+  async loginPsychologist(@Body() loginDto: LoginDto) {
     const { email, password } = loginDto;
-    const result = await this.authService.loginProfessional(email, password);
+    const result = await this.authService.loginPsychologist(email, password);
     return result;
   }
 }

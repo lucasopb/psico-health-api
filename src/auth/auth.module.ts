@@ -4,12 +4,12 @@ import { AuthService } from './auth.service';
 import { UsersModule } from 'src/users/users.module';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { ProfessionalsModule } from 'src/professionals/professionals.module';
+import { PsychologistsModule } from 'src/psychologists/psychologists.module';
 
 @Module({
   imports: [
     UsersModule,
-    ProfessionalsModule,
+    PsychologistsModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],
       global: true,
